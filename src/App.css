@@ -1,0 +1,24 @@
+.Hello {
+    position: absolute;
+    text-align: center;
+    font-family: Segoe UI;
+    color: #61dafb;
+    top: 150px;
+}
+.Button-header {
+    position: absolute;
+    text-align: center;
+    top: 250px;
+}
+.Button-active {
+    text-decoration: none;
+    font-family: Segoe UI;
+    color: #ffffff;
+}
+.Button-active:hover {
+    color: #61dafb;
+}
+
+body {
+    background-color: #20232a;
+}
