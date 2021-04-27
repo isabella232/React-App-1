@@ -1,21 +1,24 @@
-* {
-    font-family: "Segoe UI";
+.Hello {
+    position: absolute;
+    text-align: center;
+    font-family: Segoe UI;
+    color: #61dafb;
+    top: 150px;
 }
+.Button-header {
+    position: absolute;
+    text-align: center;
+    top: 250px;
+}
+.Button-active {
+    text-decoration: none;
+    font-family: Segoe UI;
+    color: #ffffff;
+}
+.Button-active:hover {
+    color: #61dafb;
+}
+
 body {
     background-color: #20232a;
-}
-li {
-    list-style-type: none;
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-a {
-    color: white;
-    text-decoration: none;
-}
-ul {
-    margin: 0;
-    padding-left: 0;
-    margin-right: 0;
-}
+} 
