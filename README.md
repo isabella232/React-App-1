@@ -1,8 +1,8 @@
 # About the project
 ![IMG](readme.png)
 
-The project is made on webpack4
+This is a REACT application template. Made on WebPack4. 
 
-I created this repository because I was tired of using create-react-app. 
+This template contains minimum files.
 
-Also, this project is easy to customize for yourself.
+ But it has a very high rebeling speed.
