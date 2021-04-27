@@ -1,16 +1,23 @@
 const path = require('path');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlsWebpackPlugin = require('htmls-webpack-plugin')
 const HappyPack = require('happypack');
+const ejs = require('ejs');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
-module.exports = {
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+let jses = "bundle.js";
+let csses = "App.css";
+module.exports = smp.wrap({
     entry: './src/index.js',
     mode: 'production',
     module: {
         rules: [
-            { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
-            { test: /\.(js)$/, use: ['babel-loader', 'happypack/loader'] }
+            { test: /\.css$/, use: ['cache-loader', 'style-loader', 'css-loader' ] },
+            { test: /\.(js)$/,
+                exclude: /node_modules/,
+                use: ['cache-loader','babel-loader', 'happypack/loader'],
+            }
         ]
     },
     output: {
@@ -21,17 +28,18 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'build'),
         port: 8080,
     },
+
     plugins: [
         //new HtmlWebpackPlugin({filename: 'index.html',template: 'src/index.html', inject: true}),
 		new HappyPack({
 			 loaders: [{
-                loader: 'babel-loader',
+			 loader: 'babel-loader',
                 options: {cacheDirectory: true }
             }]
 		}),
 		 new HtmlsWebpackPlugin({
 			 htmls: [{
-	            src: 'src/index.html',
+			     src: 'src/index.ejs',
 	            filename: 'index.html',
 	        }],
 		 }),
@@ -51,4 +59,4 @@ module.exports = {
         maxEntrypointSize: 512000,
         maxAssetSize: 512000
     }
-}
+});
