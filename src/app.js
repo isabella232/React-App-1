@@ -15,7 +15,7 @@ class App extends React.Component {
     }
     render() {
         return <>
-            <h3 className="Hello" style={this.state.hello}>Привет, Мир!</h3>
+            <h3 className="Hello" style={this.state.hello}>Hello, world</h3>
             <h3 className="Button-header"  style={this.state.button}>
                 <a href="https://github.com/MobileTV" className="Button-active">Github</a>
             </h3>
